@@ -4,7 +4,7 @@ var test = require('tape')
 
 var path = require('path')
 
-var npmExec = require('../')
+var npmRun = require('../')
 
 var level0 = path.join(__dirname, 'fixtures', 'level0')
 var level1 = path.join(level0, 'node_modules', 'level1')
@@ -16,7 +16,7 @@ var binPath = level.map(function(levelPath) {
 })
 
 test('execution', function(t) {
-  npmExec('level1', {cwd: level[0]}, function(err, stdout, stderr) {
+  npmRun('level1', {cwd: level[0]}, function(err, stdout, stderr) {
     t.ifError(err)
     t.equal(stderr.length, 0)
     t.equal(stdout.trim(), 'level1')
@@ -25,7 +25,7 @@ test('execution', function(t) {
 })
 
 test('passing args', function(t) {
-  npmExec('level1 here are some arguments', {cwd: level[0]}, function(err, stdout, stderr) {
+  npmRun('level1 here are some arguments', {cwd: level[0]}, function(err, stdout, stderr) {
     t.ifError(err)
     t.equal(stderr.trim(), 'here are some arguments')
     t.equal(stdout.trim(), 'level1')
@@ -35,7 +35,7 @@ test('passing args', function(t) {
 
 test('includes all .bin dirs in all parent node_modules folders', function(t) {
   t.test('no nesting', function(t) {
-    npmExec('level1', {cwd: level[0]}, function(err, stdout, stderr) {
+    npmRun('level1', {cwd: level[0]}, function(err, stdout, stderr) {
       t.ifError(err)
       t.equal(stderr.length, 0)
       t.equal(stdout.trim(), 'level1')
@@ -46,13 +46,13 @@ test('includes all .bin dirs in all parent node_modules folders', function(t) {
   t.test('nesting', function(t) {
     t.plan(6)
 
-    npmExec('level1', {cwd: level[1]}, function(err, stdout, stderr) {
+    npmRun('level1', {cwd: level[1]}, function(err, stdout, stderr) {
       t.ifError(err)
       t.equal(stderr.length, 0)
       t.equal(stdout.trim(), 'level1')
     })
 
-    npmExec('level2', {cwd: level[1]}, function(err, stdout, stderr) {
+    npmRun('level2', {cwd: level[1]}, function(err, stdout, stderr) {
       t.ifError(err)
       t.equal(stderr.length, 0)
       t.equal(stdout.trim(), 'level2')
@@ -62,13 +62,13 @@ test('includes all .bin dirs in all parent node_modules folders', function(t) {
   t.test('more nesting', function(t) {
     t.plan(6)
 
-    npmExec('level1', {cwd: level[2]}, function(err, stdout, stderr) {
+    npmRun('level1', {cwd: level[2]}, function(err, stdout, stderr) {
       t.ifError(err)
       t.equal(stderr.length, 0)
       t.equal(stdout.trim(), 'level1')
     })
 
-    npmExec('level2', {cwd: level[2]}, function(err, stdout, stderr) {
+    npmRun('level2', {cwd: level[2]}, function(err, stdout, stderr) {
       t.ifError(err)
       t.equal(stderr.length, 0)
       t.equal(stdout.trim(), 'level2')

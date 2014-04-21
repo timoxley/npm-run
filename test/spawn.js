@@ -5,7 +5,7 @@ var bl = require('bl')
 
 var path = require('path')
 
-var npmExec = require('../')
+var npmRun = require('../')
 
 var level0 = path.join(__dirname, 'fixtures', 'level0')
 var level1 = path.join(level0, 'node_modules', 'level1')
@@ -18,7 +18,7 @@ var binPath = level.map(function(levelPath) {
 
 test('spawn', function(t) {
   t.plan(3)
-  var child = npmExec.spawn(
+  var child = npmRun.spawn(
     'level1',
     'here are some arguments'.split(' '),
     {cwd: level[0]}
@@ -38,7 +38,7 @@ test('spawn', function(t) {
 
 test('spawn nested', function(t) {
   t.plan(3)
-  var child = npmExec.spawn(
+  var child = npmRun.spawn(
     'level1',
     'here are some arguments'.split(' '),
     {cwd: level[1]}

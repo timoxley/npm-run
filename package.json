@@ -1,9 +1,9 @@
 {
-  "name": "npm-exec",
+  "name": "npm-run",
   "version": "1.0.0",
   "description": "Run locally-installed executables.",
   "main": "index.js",
-  "bin": "bin/npm-exec.js",
+  "bin": "bin/npm-run.js",
   "scripts": {
     "test": "faucet"
   },
