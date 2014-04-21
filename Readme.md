@@ -2,8 +2,7 @@
 
 ### Run locally-installed executables.
 
-Any executable available to an npm lifecycle script is available to
-`npm-run`.
+Any executable available to an npm lifecycle script is available to `npm-run`.
 
 ## Installation
 
@@ -16,13 +15,14 @@ Any executable available to an npm lifecycle script is available to
 ```bash
 > npm install mocha
 > npm-run mocha test/*
-# uses local mocha executable, rather than global
+# uses local mocha executable
 ```
 
 ### See Also
 
-* [npm-which](https://github.com/timoxley/npm-which)
-* [npm-path](https://github.com/timoxley/npm-path)
+* [timoxley/npm-which](https://github.com/timoxley/npm-which)
+* [timoxley/npm-path](https://github.com/timoxley/npm-path)
+* [grncdr/npm-exec](https://github.com/grncdr/npm-exec)
 
 ## License
 
