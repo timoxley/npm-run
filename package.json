@@ -1,0 +1,21 @@
+{
+  "name": "npm-exec",
+  "version": "1.0.0",
+  "description": "Run locally-installed executables.",
+  "main": "index.js",
+  "bin": "bin/npm-exec.js",
+  "scripts": {
+    "test": "faucet"
+  },
+  "author": "Tim Oxley",
+  "license": "MIT",
+  "devDependencies": {
+    "bl": "^0.8.0",
+    "faucet": "0.0.1",
+    "tape": "^2.12.3"
+  },
+  "dependencies": {
+    "commander": "^2.2.0",
+    "npm-path": "^1.0.0"
+  }
+}
