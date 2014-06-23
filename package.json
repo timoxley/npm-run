@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Run locally-installed executables.",
   "main": "index.js",
-  "bin": "bin/npm-run.js",
+  "bin": {
+    "npm-run": "bin/npm-run.js"
+  },
   "scripts": {
     "test": "faucet"
   },
@@ -17,5 +19,22 @@
   "dependencies": {
     "commander": "^2.2.0",
     "npm-path": "^1.0.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timoxley/npm-run.git"
+  },
+  "keywords": [
+    "npm",
+    "path",
+    "executable",
+    "run"
+  ],
+  "bugs": {
+    "url": "https://github.com/timoxley/npm-run/issues"
+  },
+  "homepage": "https://github.com/timoxley/npm-run"
 }
