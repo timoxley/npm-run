@@ -1,14 +1,15 @@
 "use strict"
 
-var which = require('npm-which')
 var npmPath = require('npm-path')
 var child_process = require('child_process')
 
 var exec = child_process.exec
+var execSync = child_process.execSync
 var execFile = child_process.execFile
 var spawn = child_process.spawn
 var fork = child_process.fork
 npmExec.spawn = npmSpawn
+npmExec.sync = npmExecSync
 
 module.exports = npmExec
 
@@ -20,6 +21,12 @@ function npmExec(args, options, fn) {
     if (err) return fn(err)
     exec(args, options, fn)
   })
+}
+
+function npmExecSync(args, options) {
+  var opts = setOptions(options)
+  var path = getPath.sync(opts[0])
+  return execSync(args, path).toString()
 }
 
 function npmSpawn() {

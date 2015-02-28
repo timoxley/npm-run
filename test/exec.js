@@ -78,4 +78,31 @@ test('includes all .bin dirs in all parent node_modules folders', function(t) {
   t.end()
 })
 
+test('sync', function(t) {
+  t.test('no nesting', function(t) {
+    var stdout = npmRun.sync('level1', {cwd: level[0]})
+    t.equal(stdout.trim(), 'level1')
+    t.end()
+  })
+
+  t.test('nesting', function(t) {
+    var stdout = npmRun.sync('level1', {cwd: level[1]})
+    t.equal(stdout.trim(), 'level1')
+
+    stdout = npmRun.sync('level2', {cwd: level[1]})
+    t.equal(stdout.trim(), 'level2')
+    t.end()
+  })
+
+  t.test('more nesting', function(t) {
+    var stdout = npmRun.sync('level1', {cwd: level[2]})
+    t.equal(stdout.trim(), 'level1')
+
+    stdout = npmRun.sync('level2', {cwd: level[2]})
+    t.equal(stdout.trim(), 'level2')
+    t.end()
+  })
+
+  t.end()
+})
 
