@@ -1,5 +1,7 @@
 # npm-run
 
+[![Build Status](https://travis-ci.org/timoxley/npm-run.svg?branch=master)](https://travis-ci.org/timoxley/npm-run)
+
 ### Run locally-installed executables.
 
 Any executable available to an npm lifecycle script is available to `npm-run`.
