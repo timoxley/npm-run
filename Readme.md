@@ -2,9 +2,14 @@
 
 [![Build Status](https://travis-ci.org/timoxley/npm-run.svg?branch=master)](https://travis-ci.org/timoxley/npm-run)
 
-### Run locally-installed executables.
+### Run local executables from node_modules
 
-Any executable available to an npm lifecycle script is available to `npm-run`.
+Makes it easy to run locally-installed package executables in a robust manner.  Any executable available to an npm lifecycle script is available to `npm-run`.
+
+
+## Why
+
+Due to npm's install algorithm `node_modules/.bin` is not guaranteed to contain your executable. `npm-run` uses the same mechanism npm uses to locate the correct executable.
 
 ## Installation
 
