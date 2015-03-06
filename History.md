@@ -1,3 +1,10 @@
+
+1.1.1 / 2015-03-06
+==================
+
+  * Fix sync exec in 0.12/io.js. Polyfill with sync-exec over runsync.
+  * Add Travis CI.
+
 1.1.0 / 2015-03-06
 ==================
 
