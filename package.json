@@ -17,7 +17,7 @@
     "tape": "^2.12.3"
   },
   "dependencies": {
-    "commander": "^2.2.0",
+    "minimist": "^1.1.0",
     "npm-path": "^1.0.0",
     "runsync": "^0.1.8",
     "serializerr": "^1.0.1"

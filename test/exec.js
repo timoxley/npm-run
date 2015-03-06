@@ -11,9 +11,6 @@ var level1 = path.join(level0, 'node_modules', 'level1')
 var level2 = path.join(level1, 'node_modules', 'level2')
 
 var level = [level0, level1, level2]
-var binPath = level.map(function(levelPath) {
-  return path.join(levelPath, "node_modules", ".bin")
-})
 
 test('execution', function(t) {
   npmRun('level1', {cwd: level[0]}, function(err, stdout, stderr) {

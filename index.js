@@ -33,6 +33,7 @@ function npmExecSync(args, options) {
 function npmSpawn() {
   var options = {}
   var args = [].slice.apply(arguments)
+  // encode args to pass to spawn.js
   args = args.map(function(arg) {
     if (Array.isArray(arg)) return JSON.stringify(arg)
     if (arg.toString() === '[object Object]') {
@@ -41,7 +42,8 @@ function npmSpawn() {
     }
     return arg
   })
-  options.silent = true
+  if (options.stdio === 'inherit') options.silent = false
+  else options.silent = true
   var child = fork(__dirname + '/spawn.js', args, options)
   child.on('message', function(jsonErr) {
     var err = new Error()
