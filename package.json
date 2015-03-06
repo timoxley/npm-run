@@ -12,13 +12,13 @@
   "author": "Tim Oxley",
   "license": "MIT",
   "devDependencies": {
-    "bl": "^0.8.0",
+    "bl": "^0.9.4",
     "faucet": "0.0.1",
-    "tape": "^2.12.3"
+    "tape": "^3.5.0"
   },
   "dependencies": {
     "minimist": "^1.1.0",
-    "npm-path": "^1.0.0",
+    "npm-path": "^1.0.1",
     "runsync": "^0.1.8",
     "serializerr": "^1.0.1"
   },
