@@ -19,8 +19,8 @@
   "dependencies": {
     "minimist": "^1.1.0",
     "npm-path": "^1.0.1",
-    "runsync": "^0.1.8",
-    "serializerr": "^1.0.1"
+    "serializerr": "^1.0.1",
+    "sync-exec": "^0.5.0"
   },
   "directories": {
     "test": "test"
