@@ -55,3 +55,17 @@ test('spawn nested', function(t) {
     t.equal(errCode, 0)
   })
 })
+
+test('spawn bad command', function(t) {
+  var badPath = 'not-exist-adsjk'
+  npmRun.spawn(
+    badPath,
+    'here are some arguments'.split(' '),
+    {cwd: level[1]}
+  ).on('error', function(err) {
+    t.ok(err, 'has error')
+    t.equal(err.code, 'ENOENT')
+    t.ok(err.message.indexOf(badPath) !== -1)
+    t.end()
+  })
+})

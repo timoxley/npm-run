@@ -41,8 +41,18 @@ function npmSpawn() {
     }
     return arg
   })
-  return spawn(process.execPath, [__dirname + '/spawn.js'].concat(args), options)
+  options.silent = true
+  var child = fork(__dirname + '/spawn.js', args, options)
+  child.on('message', function(jsonErr) {
+    var err = new Error()
+    Object.keys(jsonErr).forEach(function(key) {
+      err[key] = jsonErr[key]
+    })
+    this.emit('error', err)
+  })
+  return child
 }
+
 
 function getPath(options, fn) {
   npmPath.get(options, function(err, newPath) {
