@@ -19,7 +19,8 @@
   "dependencies": {
     "commander": "^2.2.0",
     "npm-path": "^1.0.0",
-    "npm-which": "^1.0.1"
+    "npm-which": "^1.0.1",
+    "runsync": "^0.1.8"
   },
   "directories": {
     "test": "test"

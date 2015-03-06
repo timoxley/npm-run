@@ -2,9 +2,10 @@
 
 var npmPath = require('npm-path')
 var child_process = require('child_process')
+var runSync = require('runsync')
 
 var exec = child_process.exec
-var execSync = child_process.execSync
+var execSync = child_process.execSync || runSync.exec
 var execFile = child_process.execFile
 var spawn = child_process.spawn
 var fork = child_process.fork
