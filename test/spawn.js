@@ -65,13 +65,10 @@ test('spawn bad command', function(t) {
   ).on('error', function(err) {
     t.ok(err, 'has error')
     t.equal(err.code, 'ENOENT')
-    t.ok(err.message.indexOf(badPath) !== -1)
     t.end()
   })
 })
-function inspect(msg) { // for debugging
-  console.log(typeof msg, require('util').inspect(msg, {colors: true, depth: 30}))
-}
+
 test('spawnSync', function(t) {
   var child = npmRun.spawnSync(
     'level1',
