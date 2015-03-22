@@ -69,3 +69,28 @@ test('spawn bad command', function(t) {
     t.end()
   })
 })
+function inspect(msg) { // for debugging
+  console.log(typeof msg, require('util').inspect(msg, {colors: true, depth: 30}))
+}
+test('spawnSync', function(t) {
+  var child = npmRun.spawnSync(
+    'level1',
+    'here are some arguments'.split(' '),
+    {cwd: level[0]}
+  )
+  t.equal(child.stdout.toString().trim(), 'level1')
+  t.equal(child.stderr.toString().trim(), 'here are some arguments')
+  t.equal(child.status, 0)
+  t.end()
+})
+
+test('spawnSync bad command', function(t) {
+  var badPath = 'not-exist-adsjk'
+  var child = npmRun.spawnSync(
+    badPath,
+    'here are some arguments'.split(' '),
+    {cwd: level[1]}
+  )
+  t.notEqual(child.status, 0)
+  t.end()
+})
