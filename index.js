@@ -3,6 +3,7 @@
 var npmPath = require('npm-path')
 var child_process = require('child_process')
 var syncExec = require('sync-exec')
+var spawn = require('cross-spawn')
 
 var exec = child_process.exec
 
@@ -12,7 +13,6 @@ var execSync = child_process.execSync || function(args, path) {
 }
 
 var execFile = child_process.execFile
-var spawn = child_process.spawn
 var fork = child_process.fork
 
 npmExec.spawn = npmSpawn
@@ -45,7 +45,7 @@ function npmSpawnSync(command, args, options) {
   command = a[0]
   args = a[1]
   options = a[2]
-  return child_process.spawnSync(command, args, augmentOptionsSync(options))
+  return spawn.sync(command, args, augmentOptionsSync(options))
 }
 
 function npmExecSync(command, options) {
