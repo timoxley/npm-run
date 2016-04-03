@@ -4,14 +4,14 @@
 
 ### Run local executables from node_modules
 
-Makes it easy to run locally-installed package executables in a robust manner.  Any executable available to an npm lifecycle script is available to `npm-run`.
+* Run locally-installed package executables in a robust manner.  
+* Any executable available to an npm lifecycle script is available to `npm-run`.
 
 ## Usage
 
 ```bash
-> npm install mocha
-> npm-run mocha test/*
-# uses local mocha executable
+> npm install mocha # mocha installed in ./node_modules
+> npm-run mocha test/* # uses locally installed mocha executable 
 ```
 
 ## Installation
@@ -20,7 +20,7 @@ Makes it easy to run locally-installed package executables in a robust manner.  
 > npm install -g npm-run
 ```
 
-## API
+## Programattic API
 
 The API of `npm-run` basically wraps `child_process` methods such that Any executable available to an npm lifecycle script is on the PATH.
 
