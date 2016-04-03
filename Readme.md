@@ -2,10 +2,9 @@
 
 [![Build Status](https://travis-ci.org/timoxley/npm-run.svg?branch=master)](https://travis-ci.org/timoxley/npm-run)
 
-### Run local executables from node_modules
+### Find & run local executables from node_modules
 
-* Run locally-installed package executables in a robust manner.  
-* Any executable available to an npm lifecycle script is available to `npm-run`.
+Any executable available to an npm lifecycle script is available to `npm-run`.
 
 ## Usage
 
