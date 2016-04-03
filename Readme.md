@@ -6,23 +6,18 @@
 
 Makes it easy to run locally-installed package executables in a robust manner.  Any executable available to an npm lifecycle script is available to `npm-run`.
 
-
-## Why
-
-Due to npm's install algorithm `node_modules/.bin` is not guaranteed to contain your executable. `npm-run` uses the same mechanism npm uses to locate the correct executable.
-
-## Installation
-
-```bash
-> npm install -g npm-run
-```
-
 ## Usage
 
 ```bash
 > npm install mocha
 > npm-run mocha test/*
 # uses local mocha executable
+```
+
+## Installation
+
+```bash
+> npm install -g npm-run
 ```
 
 ## API
@@ -92,6 +87,10 @@ child.on('exit', function(code) {
   code // exit code
 })
 ```
+
+## Why
+
+Due to npm's install algorithm `node_modules/.bin` is not guaranteed to contain your executable. `npm-run` uses the same mechanism npm uses to locate the correct executable.
 
 ### See Also
 
