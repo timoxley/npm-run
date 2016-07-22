@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "minimist": "^1.2.0",
-    "npm-path": "^2.0.0",
-    "npm-which": "^2.0.0",
+    "npm-path": "^2.0.2",
+    "npm-which": "^3.0.0",
     "serializerr": "^1.0.2",
     "sync-exec": "^0.6.2"
   },
