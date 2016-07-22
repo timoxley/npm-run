@@ -16,10 +16,10 @@
     "tape": "^4.6.0"
   },
   "dependencies": {
-    "cross-spawn": "^2.1.5",
+    "cross-spawn": "^4.0.0",
     "minimist": "^1.2.0",
     "npm-path": "^2.0.2",
-    "npm-which": "^3.0.0",
+    "npm-which": "^3.0.1",
     "serializerr": "^1.0.2",
     "sync-exec": "^0.6.2"
   },
