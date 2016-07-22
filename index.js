@@ -69,6 +69,7 @@ function augmentOptions(options, fn) {
 }
 
 function augmentOptionsSync(options) {
+  options = options || {};
   var newPath = npmPath.getSync(options)
   var env = Object.create(options.env)
   env[npmPath.PATH] = newPath
