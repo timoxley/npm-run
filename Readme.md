@@ -1,5 +1,8 @@
 # npm-run
 
+[![NPM](https://nodei.co/npm/npm-run.png?downloads=true&downloadRank=true)](https://nodei.co/npm-dl/npm-run/)
+[![NPM](https://nodei.co/npm-dl/npm-run.png?months=3&height=3&chrome)](https://nodei.co/npm/npm-run/)
+
 [![Build Status](https://travis-ci.org/timoxley/npm-run.svg?branch=master)](https://travis-ci.org/timoxley/npm-run)
 
 ### Find & run local executables from node_modules
