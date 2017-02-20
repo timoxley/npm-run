@@ -52,7 +52,7 @@ Takes same arguments as node's [execSync](https://nodejs.org/api/child_process.h
 
 ```js
 var stdout = npmRun.execSync(
-  'mocha --debug-brk --sort'
+  'mocha --debug-brk --sort',
   {cwd: __dirname + '/tests'}
 )
 stdout // command output as Buffer|String
