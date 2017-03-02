@@ -13,11 +13,12 @@ if (program._.length == 2) {
     console.log(pkg.version)
     process.exit()
   }
+
   if (program.help) {
-    displayHelp(program._[1])
+    displayHelp(pkg.name)
     process.exit()
   } else {
-    displayHelp(program._[1])
+    displayHelp(pkg.name)
     process.exit(1)
   }
 }
@@ -41,9 +42,11 @@ function displayHelp(name) {
   console.log([
     'Usage: '+name+' command [...args]',
     'Options:',
-    '  --version  Display version and exit.',
-    '  --help     Display this help.',
-    ''
+    '  --version  Display version & exit.',
+    '  --help     Display this help & exit.',
+    '',
+    'Hint: to print augmented path use:',
+    name + ' node -p process.env.PATH'
   ].join('\n'))
 
 }
