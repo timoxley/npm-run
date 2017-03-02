@@ -5,7 +5,9 @@
 
 [![Build Status](https://travis-ci.org/timoxley/npm-run.svg?branch=master)](https://travis-ci.org/timoxley/npm-run)
 
-### Find & run local executables from node_modules
+### Run executables in node_modules from the command-line
+
+Use `npm-run` to ensure you're using the same version of a package on the command-line and in package.json scripts.
 
 Any executable available to an npm lifecycle script is available to `npm-run`.
 
@@ -16,13 +18,24 @@ Any executable available to an npm lifecycle script is available to `npm-run`.
 > npm-run mocha test/* # uses locally installed mocha executable 
 ```
 
+```bash
+> npm-run --help
+Usage: npm-run command [...args]
+Options:
+  --version  Display version & exit.
+  --help     Display this help & exit.
+
+Hint: to print augmented path use:
+npm-run node -p process.env.PATH
+```
+
 ## Installation
 
 ```bash
 > npm install -g npm-run
 ```
 
-## Programattic API
+## Programmatic API
 
 The API of `npm-run` basically wraps `child_process` methods such that Any executable available to an npm lifecycle script is on the PATH.
 
@@ -35,7 +48,7 @@ Alias of npmRun.exec.
 Takes same arguments as node's [exec](https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback).
 
 ```js
-npmRun.exec('mocha --debug-brk --sort', {cwd: __dirname + '/tests'}, function(err, stdout, stderr) {
+npmRun.exec('mocha --debug-brk --sort', {cwd: __dirname + '/tests'}, function (err, stdout, stderr) {
   // err Error or null if there was no error
   // stdout Buffer|String
   // stderr Buffer|String
@@ -85,7 +98,7 @@ var child = npmRun.spawn(
 )
 child.stdout // stdout Stream
 child.stderr // stderr Stream
-child.on('exit', function(code) {
+child.on('exit', function (code) {
   code // exit code
 })
 ```
