@@ -7,12 +7,14 @@
     "npm-run": "bin/npm-run.js"
   },
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "tape test/*.js && npm run lint",
+    "lint": "standard"
   },
   "author": "Tim Oxley",
   "license": "MIT",
   "devDependencies": {
     "bl": "^1.2.0",
+    "standard": "^9.0.0",
     "tape": "^4.6.3"
   },
   "dependencies": {

@@ -1,19 +1,16 @@
-"use strict"
+'use strict'
 
 var npmPath = require('npm-path')
-var child_process = require('child_process')
+var childProcess = require('child_process')
 var syncExec = require('sync-exec')
 var spawn = require('cross-spawn')
 
-var exec = child_process.exec
+var exec = childProcess.exec
 
-// polyfill for child_process.execSync
-var execSync = child_process.execSync || function(args, path) {
+// polyfill for childProcess.execSync
+var execSync = childProcess.execSync || function (args, path) {
   return syncExec(args, path).stdout
 }
-
-var execFile = child_process.execFile
-var fork = child_process.fork
 
 npmExec.spawn = npmSpawn
 npmExec.spawnSync = npmSpawnSync
@@ -24,14 +21,14 @@ npmExec.execSync = npmExecSync
 
 module.exports = npmExec
 
-function npmExec(command, options, fn) {
+function npmExec (command, options, fn) {
   var a = normalizeExecArgs(command, options)
   command = a[0]
   options = a[1]
   return exec(command, augmentOptionsSync(options), fn)
 }
 
-function npmSpawn(command, args, options, fn) {
+function npmSpawn (command, args, options, fn) {
   var a = normalizeSpawnArgs(command, args, options)
   command = a[0]
   args = a[1]
@@ -40,7 +37,7 @@ function npmSpawn(command, args, options, fn) {
   return spawn(command, args, augmentOptionsSync(options), fn)
 }
 
-function npmSpawnSync(command, args, options) {
+function npmSpawnSync (command, args, options) {
   var a = normalizeSpawnArgs(command, args, options)
   command = a[0]
   args = a[1]
@@ -48,28 +45,15 @@ function npmSpawnSync(command, args, options) {
   return spawn.sync(command, args, augmentOptionsSync(options))
 }
 
-function npmExecSync(command, options) {
+function npmExecSync (command, options) {
   var a = normalizeExecArgs(command, options)
   command = a[0]
   options = a[1]
   return execSync(command, augmentOptionsSync(options))
 }
 
-function augmentOptions(options, fn) {
-  if (arguments.length === 1) fn = options, options = null
-  options = Object.create(options || {})
-  options.env = options.env || process.env
-  options.cwd = options.cwd || process.cwd()
-  npmPath.get(options, function(err, newPath) {
-    var env = Object.create(options.env)
-    env[npmPath.PATH] = newPath
-    options.env = env
-    fn(null, options)
-  })
-}
-
-function augmentOptionsSync(options) {
-  options = options || {};
+function augmentOptionsSync (options) {
+  options = options || {}
   var newPath = npmPath.getSync(options)
   var env = Object.create(options.env)
   env[npmPath.PATH] = newPath
@@ -77,56 +61,39 @@ function augmentOptionsSync(options) {
   return options
 }
 
-function normalizeSpawnArgs(file /*, args, options*/) {
-  var args, options;
+function normalizeSpawnArgs (file /*, args, options */) {
+  var args, options
 
   if (Array.isArray(arguments[1])) {
-    args = arguments[1].slice(0);
-    options = arguments[2];
+    args = arguments[1].slice(0)
+    options = arguments[2]
   } else if (arguments[1] !== undefined &&
              (arguments[1] === null || typeof arguments[1] !== 'object')) {
-    throw new TypeError('Incorrect value of args option');
+    throw new TypeError('Incorrect value of args option')
   } else {
-    args = [];
-    options = arguments[1];
+    args = []
+    options = arguments[1]
   }
 
-  if (options === undefined)
-    options = {};
-  else if (options === null || typeof options !== 'object')
-    throw new TypeError('options argument must be an object');
+  if (options === undefined) { options = {} } else if (options === null || typeof options !== 'object') { throw new TypeError('options argument must be an object') }
 
   return [file, args, options]
 }
 
-function normalizeExecArgs(command /*, options, callback */) {
-  var options, callback;
+function normalizeExecArgs (command /*, options, callback */) {
+  var options, callback
 
   if (typeof arguments[1] === 'function') {
-    options = undefined;
-    callback = arguments[1];
+    options = undefined
+    callback = arguments[1]
   } else {
-    options = arguments[1];
-    callback = arguments[2];
+    options = arguments[1]
+    callback = arguments[2]
   }
   callback = callback || noopErr
   return [command, options, callback]
 }
 
-function normalizeForkArgs(modulePath /*, args, options*/) {
-  var args, options;
-  if (Array.isArray(arguments[1])) {
-    args = arguments[1].slice(0);
-    options = arguments[2];
-  } else if (arguments[1] && typeof arguments[1] !== 'object') {
-    throw new TypeError('Incorrect value of args option');
-  } else {
-    args = [];
-    options = arguments[1];
-  }
-  return [modulePath, args, options]
-}
-
-function noopErr(err) {
+function noopErr (err) {
   if (err) throw err
 }

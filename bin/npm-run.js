@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
+'use strict'
+
 var pkg = require('../package.json')
-var exec = require('child_process').exec
-var path = require('path')
 var npmExec = require('../')
 var npmWhich = require('npm-which')
 
 var program = require('minimist')(process.argv)
 
-if (program._.length == 2) {
+if (program._.length === 2) {
   if (program.version) {
     console.log(pkg.version)
     process.exit()
@@ -24,23 +24,23 @@ if (program._.length == 2) {
 }
 
 try {
-  var command = npmWhich.sync(process.argv[2], {cwd: process.cwd()})
+  npmWhich.sync(process.argv[2], {cwd: process.cwd()})
 } catch (err) {
   console.log(err.message)
   process.exit(1)
 }
 
 npmExec.spawn(process.argv[2], process.argv.slice(3), {stdio: 'inherit'})
-.on('error', function(err) {
+.on('error', function (err) {
   console.error(err.stack)
 })
-.on('close', function(code) {
+.on('close', function (code) {
   process.exit(code)
 })
 
-function displayHelp(name) {
+function displayHelp (name) {
   console.log([
-    'Usage: '+name+' command [...args]',
+    'Usage: ' + name + ' command [...args]',
     'Options:',
     '  --version  Display version & exit.',
     '  --help     Display this help & exit.',
@@ -48,5 +48,4 @@ function displayHelp(name) {
     'Hint: to print augmented path use:',
     name + ' node -p process.env.PATH'
   ].join('\n'))
-
 }
