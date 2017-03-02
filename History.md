@@ -1,3 +1,37 @@
+4.1.1 / 2016-07-22
+==================
+
+  * Update dependencies.
+  * Documentation fixes.
+  * Lint code.
+
+4.1.0 / 2016-07-22
+==================
+
+  * Update dependencies.
+  * Support Windows with cross-spawn. (@htanjo)
+
+4.0.1 / 2016-07-22
+==================
+
+  * Update dependencies.
+
+4.0.0 / 2016-07-22
+==================
+
+  * Update dependencies.
+  * Older versions of node no longer supported.
+
+3.0.0 / 2016-02-25
+==================
+
+  * Removed spawn-sync. (@wesleytodd)
+
+2.0.1 / 2016-01-29
+==================
+
+  * Update to exec-sync with new licence. (@gtanner)
+
 2.0.0 / 2015-03-22
 ==================
 
