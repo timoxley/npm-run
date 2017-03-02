@@ -37,7 +37,7 @@ npm-run node -p process.env.PATH
 
 ## Programmatic API
 
-The API of `npm-run` basically wraps `child_process` methods such that Any executable available to an npm lifecycle script is on the PATH.
+The API of `npm-run` basically wraps core `child_process` methods (exec, spawn, etc) such that locally install package executables will be on the PATH when the command runs.
 
 ## npmRun(command[, options], callback)
 
