@@ -12,15 +12,15 @@
   "author": "Tim Oxley",
   "license": "MIT",
   "devDependencies": {
-    "bl": "^1.1.2",
-    "tape": "^4.6.0"
+    "bl": "^1.2.0",
+    "tape": "^4.6.3"
   },
   "dependencies": {
-    "cross-spawn": "^4.0.0",
+    "cross-spawn": "^5.1.0",
     "minimist": "^1.2.0",
-    "npm-path": "^2.0.2",
+    "npm-path": "^2.0.3",
     "npm-which": "^3.0.1",
-    "serializerr": "^1.0.2",
+    "serializerr": "^1.0.3",
     "sync-exec": "^0.6.2"
   },
   "directories": {
