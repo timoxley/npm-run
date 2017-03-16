@@ -30,6 +30,16 @@ test('passing args', function (t) {
   })
 })
 
+test('options are optional', function (t) {
+  var badPath = 'not-exist-adsjk'
+
+  npmRun(badPath, function (err, stdout, stderr) {
+    t.ok(err, 'has error')
+    t.equal(err.code, 127)
+    t.end()
+  })
+})
+
 test('includes all .bin dirs in all parent node_modules folders', function (t) {
   t.test('no nesting', function (t) {
     npmRun('level1', {cwd: level[0]}, function (err, stdout, stderr) {
