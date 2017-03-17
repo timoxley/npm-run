@@ -30,7 +30,7 @@ function npmExec (command, options, fn) {
 }
 
 function npmSpawn (command, args, options, fn) {
-  var a = normalizeSpawnArgs(command, args, options)
+  var a = normalizeSpawnArgs(command, args, options, fn)
   command = a[0]
   args = a[1]
   options = a[2]
