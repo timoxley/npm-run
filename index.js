@@ -22,9 +22,10 @@ npmExec.execSync = npmExecSync
 module.exports = npmExec
 
 function npmExec (command, options, fn) {
-  var a = normalizeExecArgs(command, options)
+  var a = normalizeExecArgs(command, options, fn)
   command = a[0]
   options = a[1]
+  fn = a[2]
   return exec(command, augmentOptionsSync(options), fn)
 }
 
