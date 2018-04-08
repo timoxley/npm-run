@@ -22,8 +22,7 @@
     "minimist": "^1.2.0",
     "npm-path": "^2.0.3",
     "npm-which": "^3.0.1",
-    "serializerr": "^1.0.3",
-    "sync-exec": "^0.6.2"
+    "serializerr": "^1.0.3"
   },
   "directories": {
     "test": "test"
