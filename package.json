@@ -13,14 +13,13 @@
   "author": "Tim Oxley",
   "license": "MIT",
   "devDependencies": {
-    "bl": "^1.2.0",
-    "standard": "^9.0.0",
-    "tape": "^4.6.3"
+    "bl": "^1.2.2",
+    "standard": "^11.0.1",
+    "tape": "^4.9.0"
   },
   "dependencies": {
-    "cross-spawn": "^5.1.0",
     "minimist": "^1.2.0",
-    "npm-path": "^2.0.3",
+    "npm-path": "^2.0.4",
     "npm-which": "^3.0.1",
     "serializerr": "^1.0.3"
   },

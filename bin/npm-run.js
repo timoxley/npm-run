@@ -31,12 +31,12 @@ try {
 }
 
 npmExec.spawn(process.argv[2], process.argv.slice(3), {stdio: 'inherit'})
-.on('error', function (err) {
-  console.error(err.stack)
-})
-.on('close', function (code) {
-  process.exit(code)
-})
+  .on('error', function (err) {
+    console.error(err.stack)
+  })
+  .on('close', function (code) {
+    process.exit(code)
+  })
 
 function displayHelp (name) {
   console.log([
