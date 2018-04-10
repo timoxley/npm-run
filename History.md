@@ -1,3 +1,10 @@
+5.0.0 / 2018-04-10
+==================
+
+  * Update dependencies.
+  * Remove spawn-sync polyfill.
+  * Test on node 8.
+
 4.1.2 / 2017-03-17
 ==================
 
