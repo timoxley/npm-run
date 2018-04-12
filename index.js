@@ -2,9 +2,10 @@
 
 var npmPath = require('npm-path')
 var childProcess = require('child_process')
-var spawn = require('cross-spawn')
 
 var exec = childProcess.exec
+var spawn = childProcess.spawn
+var spawnSync = childProcess.spawnSync
 
 // polyfill for childProcess.execSync
 var execSync = childProcess.execSync
@@ -40,7 +41,7 @@ function npmSpawnSync (command, args, options) {
   command = a[0]
   args = a[1]
   options = a[2]
-  return spawn.sync(command, args, augmentOptionsSync(options))
+  return spawnSync(command, args, augmentOptionsSync(options))
 }
 
 function npmExecSync (command, options) {
