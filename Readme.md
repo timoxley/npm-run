@@ -5,6 +5,10 @@
 
 [![Build Status](https://travis-ci.org/timoxley/npm-run.svg?branch=master)](https://travis-ci.org/timoxley/npm-run)
 
+## **DEPRECATION NOTICE**
+
+**Since [`npm@5.2.0`](https://github.com/npm/npm/releases/tag/v5.2.0), npm includes [npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b). npm-run is deprecated.**
+
 ### Run executables in node_modules from the command-line
 
 Use `npm-run` to ensure you're using the same version of a package on the command-line and in package.json scripts.
