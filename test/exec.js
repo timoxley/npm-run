@@ -35,7 +35,7 @@ test('options are optional', function (t) {
 
   npmRun(badPath, function (err, stdout, stderr) {
     t.ok(err, 'has error')
-    t.equal(err.code, 127)
+    t.equal(err.code, (process.platform === 'win32' ? 1 : 127))
     t.end()
   })
 })

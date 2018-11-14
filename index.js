@@ -4,8 +4,8 @@ var npmPath = require('npm-path')
 var childProcess = require('child_process')
 
 var exec = childProcess.exec
-var spawn = childProcess.spawn
-var spawnSync = childProcess.spawnSync
+var spawn = require('cross-spawn')
+var spawnSync = spawn.sync
 
 // polyfill for childProcess.execSync
 var execSync = childProcess.execSync
