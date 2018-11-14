@@ -5,7 +5,7 @@ var bl = require('bl')
 var fs = require('fs')
 
 var path = require('path')
-var spawn = require('child_process').spawn
+var spawn = require('cross-spawn')
 
 var level0 = path.join(__dirname, 'fixtures', 'level0')
 var level1 = path.join(level0, 'node_modules', 'level1')

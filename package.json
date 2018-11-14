@@ -18,6 +18,7 @@
     "tape": "^4.9.0"
   },
   "dependencies": {
+    "cross-spawn": "^6.0.5",
     "minimist": "^1.2.0",
     "npm-path": "^2.0.4",
     "npm-which": "^3.0.1",
